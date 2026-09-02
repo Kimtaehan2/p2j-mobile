@@ -1,0 +1,51 @@
+name: p2j_mobile
+description: "P들을 위한 TODO 공유 앱 P2J의 모바일 클라이언트."
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # 상태관리
+  flutter_riverpod: ^3.0.0
+  riverpod_annotation: ^3.0.0
+
+  # 네트워크 / 라우팅
+  dio: ^5.7.0
+  go_router: ^14.6.0
+
+  # 모델
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # 토큰 저장
+  flutter_secure_storage: ^9.2.2
+
+  # flutter_localizations 가 intl 버전을 고정하므로 여기서는 따라간다.
+  intl: any
+
+  # 통계 화면(11주차)용. 이번 범위에서는 쓰지 않는다.
+  fl_chart: ^0.69.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  freezed: ^3.0.0
+  json_serializable: ^6.9.0
+  riverpod_generator: ^3.0.0
+  riverpod_lint: ^3.0.0
+  custom_lint: ^0.8.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/mock/fixtures/

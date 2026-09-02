@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 개발 중에만 필요한 권한. flutter tool 이 hot reload 를 위해 쓴다. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--
+      debug 소스셋에만 둔다. 릴리스 빌드에는 병합되지 않는다.
+      메인 매니페스트에 usesCleartextTraffic 을 넣으면 릴리스에 딸려간다.
+    -->
+    <application android:networkSecurityConfig="@xml/network_security_config"/>
+</manifest>

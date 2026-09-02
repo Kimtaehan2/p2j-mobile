@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+import '../network/api_exception.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_spacing.dart';
+import '../theme/app_typography.dart';
+
+/// 에러 상태 화면.
+///
+/// 사과하지 않는다. 무엇이 잘못됐고 어떻게 하면 되는지만 말한다.
+class ErrorView extends StatelessWidget {
+  const ErrorView({required this.error, this.onRetry, super.key});
+
+  final Object error;
+  final VoidCallback? onRetry;
+
+  String get _message {
+    final failure = error;
+    if (failure is ApiException) return failure.message;
+    return '요청을 처리하지 못했어요. 다시 시도하세요.';
+  }
+
+  IconData get _icon {
+    final failure = error;
+    if (failure is ApiException && failure.isNetworkProblem) {
+      return Icons.wifi_off_rounded;
+    }
+    return Icons.error_outline_rounded;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.s32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 56,
+              height: 56,
+              decoration: const BoxDecoration(
+                color: AppColors.dangerSurface,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(_icon, color: AppColors.danger, size: 26),
+            ),
+            const SizedBox(height: AppSpacing.s20),
+            Text(
+              _message,
+              textAlign: TextAlign.center,
+              style: AppTypography.body.copyWith(color: AppColors.ink),
+            ),
+            if (onRetry != null) ...[
+              const SizedBox(height: AppSpacing.s24),
+              SizedBox(
+                width: 140,
+                child: OutlinedButton(
+                  onPressed: onRetry,
+                  child: const Text('다시 시도'),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}

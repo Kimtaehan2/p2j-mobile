@@ -1,0 +1,9 @@
+{
+  "data": {
+    "user_id": 1,
+    "nickname": "태한",
+    "profile_image_url": null,
+    "created_at": "{{TODAY-30}}T10:00:00+09:00",
+    "today": "{{TODAY}}"
+  }
+}

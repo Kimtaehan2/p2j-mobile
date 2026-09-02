@@ -1,0 +1,26 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# 코드 생성 결과물. build_runner 로 다시 만든다.
+*.g.dart
+*.freezed.dart
+
+# IDE
+*.iml
+.idea/
+.vscode/
+
+# Android
+android/.gradle/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# 로컬 실행 설정
+.claude/

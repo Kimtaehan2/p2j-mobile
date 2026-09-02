@@ -1,0 +1,8 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # 서버 JSON 이 snake_case 라서 전역으로 맞춘다. 필드마다 @JsonKey 를 달지 않아도 된다.
+          field_rename: snake
+          explicit_to_json: true

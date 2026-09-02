@@ -1,0 +1,59 @@
+[
+  {
+    "goal_id": 12,
+    "title": "주 3회 운동하기",
+    "type": "recurring",
+    "frequency": { "times": 3, "per": "week" },
+    "duration_weeks": 4,
+    "start_date": "{{TODAY-9}}",
+    "end_date": "{{TODAY+18}}",
+    "estimated_minutes": 60,
+    "status": "active",
+    "progress": {
+      "target_count": 12,
+      "done_count": 5,
+      "achievement_rate": 0.42,
+      "current_week_done": 1,
+      "current_week_target": 3
+    },
+    "created_at": "{{TODAY-9}}T08:12:00+09:00"
+  },
+  {
+    "goal_id": 13,
+    "title": "토익 단어 매일 30개",
+    "type": "recurring",
+    "frequency": { "times": 7, "per": "week" },
+    "duration_weeks": 6,
+    "start_date": "{{TODAY-6}}",
+    "end_date": "{{TODAY+35}}",
+    "estimated_minutes": 25,
+    "status": "active",
+    "progress": {
+      "target_count": 42,
+      "done_count": 4,
+      "achievement_rate": 0.1,
+      "current_week_done": 4,
+      "current_week_target": 7
+    },
+    "created_at": "{{TODAY-6}}T21:40:00+09:00"
+  },
+  {
+    "goal_id": 14,
+    "title": "알고리즘 문제 풀기",
+    "type": "recurring",
+    "frequency": { "times": 4, "per": "week" },
+    "duration_weeks": 8,
+    "start_date": "{{TODAY-3}}",
+    "end_date": "{{TODAY+52}}",
+    "estimated_minutes": 45,
+    "status": "active",
+    "progress": {
+      "target_count": 32,
+      "done_count": 2,
+      "achievement_rate": 0.06,
+      "current_week_done": 2,
+      "current_week_target": 4
+    },
+    "created_at": "{{TODAY-3}}T09:05:00+09:00"
+  }
+]

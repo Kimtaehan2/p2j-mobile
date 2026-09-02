@@ -1,0 +1,32 @@
+{
+  "{{TODAY-6}}": [
+    { "todo_id": 201, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-6}}", "status": "done", "estimated_minutes": 25, "actual_minutes": 30, "completed_at": "{{TODAY-6}}T22:10:00+09:00", "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 202, "goal_id": 12, "goal_title": "주 3회 운동하기", "title": "헬스장 가서 상체 운동", "date": "{{TODAY-6}}", "status": "done", "estimated_minutes": 60, "actual_minutes": 55, "completed_at": "{{TODAY-6}}T19:40:00+09:00", "order": 2, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY-5}}": [
+    { "todo_id": 211, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-5}}", "status": "done", "estimated_minutes": 25, "actual_minutes": 22, "completed_at": "{{TODAY-5}}T23:05:00+09:00", "order": 1, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY-4}}": [
+    { "todo_id": 221, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-4}}", "status": "pending", "estimated_minutes": 25, "actual_minutes": null, "completed_at": null, "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 222, "goal_id": 12, "goal_title": "주 3회 운동하기", "title": "저녁에 30분 달리기", "date": "{{TODAY-4}}", "status": "pending", "estimated_minutes": 30, "actual_minutes": null, "completed_at": null, "order": 2, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY-3}}": [
+    { "todo_id": 231, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-3}}", "status": "done", "estimated_minutes": 25, "actual_minutes": 25, "completed_at": "{{TODAY-3}}T21:30:00+09:00", "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 232, "goal_id": 14, "goal_title": "알고리즘 문제 풀기", "title": "백준 실버 2문제", "date": "{{TODAY-3}}", "status": "done", "estimated_minutes": 45, "actual_minutes": 60, "completed_at": "{{TODAY-3}}T23:50:00+09:00", "order": 2, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY-2}}": [
+    { "todo_id": 241, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-2}}", "status": "done", "estimated_minutes": 25, "actual_minutes": 20, "completed_at": "{{TODAY-2}}T20:15:00+09:00", "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 242, "goal_id": 12, "goal_title": "주 3회 운동하기", "title": "헬스장 가서 하체 운동", "date": "{{TODAY-2}}", "status": "done", "estimated_minutes": 60, "actual_minutes": 65, "completed_at": "{{TODAY-2}}T19:00:00+09:00", "order": 2, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 243, "goal_id": 14, "goal_title": "알고리즘 문제 풀기", "title": "백준 실버 2문제", "date": "{{TODAY-2}}", "status": "pending", "estimated_minutes": 45, "actual_minutes": null, "completed_at": null, "order": 3, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY-1}}": [
+    { "todo_id": 251, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY-1}}", "status": "pending", "estimated_minutes": 25, "actual_minutes": null, "completed_at": null, "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 252, "goal_id": 14, "goal_title": "알고리즘 문제 풀기", "title": "백준 골드 1문제", "date": "{{TODAY-1}}", "status": "done", "estimated_minutes": 45, "actual_minutes": 80, "completed_at": "{{TODAY-1}}T22:40:00+09:00", "order": 2, "is_declared": false, "source": "ai_suggested" }
+  ],
+  "{{TODAY}}": [
+    { "todo_id": 301, "goal_id": 12, "goal_title": "주 3회 운동하기", "title": "아침 스트레칭 10분", "date": "{{TODAY}}", "status": "done", "estimated_minutes": 10, "actual_minutes": 12, "completed_at": "{{TODAY}}T07:20:00+09:00", "order": 1, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 302, "goal_id": 12, "goal_title": "주 3회 운동하기", "title": "헬스장 가서 하체 운동", "date": "{{TODAY}}", "status": "pending", "estimated_minutes": 60, "actual_minutes": null, "completed_at": null, "order": 2, "is_declared": true, "source": "ai_suggested" },
+    { "todo_id": 303, "goal_id": 13, "goal_title": "토익 단어 매일 30개", "title": "토익 단어 30개 외우기", "date": "{{TODAY}}", "status": "pending", "estimated_minutes": 25, "actual_minutes": null, "completed_at": null, "order": 3, "is_declared": false, "source": "ai_suggested" },
+    { "todo_id": 304, "goal_id": 14, "goal_title": "알고리즘 문제 풀기", "title": "백준 실버 2문제", "date": "{{TODAY}}", "status": "pending", "estimated_minutes": 45, "actual_minutes": null, "completed_at": null, "order": 4, "is_declared": false, "source": "ai_suggested" }
+  ]
+}

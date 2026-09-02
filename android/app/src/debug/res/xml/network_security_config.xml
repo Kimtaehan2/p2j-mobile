@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 9 부터 평문 HTTP 가 기본 차단된다.
+  개발 서버(http://10.0.2.2:8000)와 실기기 테스트용 LAN 주소를 위해 debug 빌드에서만 연다.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>
