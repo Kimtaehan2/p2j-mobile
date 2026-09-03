@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_illustrations.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_typography.dart';
 import '../../../core/widgets/error_view.dart';
@@ -18,64 +20,101 @@ class SplashScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authControllerProvider);
 
-    if (auth.hasError) {
-      return Scaffold(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.espresso,
         body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: ErrorView(
-                  error: auth.error!,
-                  onRetry: () => ref.invalidate(authControllerProvider),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: AppSpacing.s24),
-                child: TextButton(
-                  onPressed: () =>
-                      ref.read(authControllerProvider.notifier).logout(),
-                  child: Text(
-                    '다른 계정으로 로그인',
-                    style: AppTypography.caption.copyWith(
-                      color: AppColors.muted,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+          child: auth.hasError ? _error(ref, auth.error!) : const _Loading(),
+        ),
+      ),
+    );
+  }
+
+  Widget _error(WidgetRef ref, Object error) {
+    return Column(
+      children: [
+        Expanded(
+          child: ErrorView(
+            error: error,
+            onDark: true,
+            onRetry: () => ref.invalidate(authControllerProvider),
           ),
         ),
-      );
-    }
-
-    return Scaffold(
-      backgroundColor: AppColors.espresso,
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 64,
-              height: 64,
-              decoration: BoxDecoration(
-                color: AppColors.gold,
-                borderRadius: BorderRadius.circular(AppRadius.r20),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                'P2J',
-                style: AppTypography.titleM.copyWith(color: AppColors.espresso),
-              ),
-            ),
-            const SizedBox(height: AppSpacing.s20),
-            Text(
-              '오늘 할 일을 불러오는 중',
+        Padding(
+          padding: const EdgeInsets.only(bottom: AppSpacing.s24),
+          child: TextButton(
+            onPressed: () => ref.read(authControllerProvider.notifier).logout(),
+            child: Text(
+              '다른 계정으로 로그인',
               style: AppTypography.caption.copyWith(
-                color: AppColors.muted,
+                color: AppColors.onEspressoMuted,
               ),
             ),
-          ],
+          ),
         ),
+      ],
+    );
+  }
+}
+
+/// 마스코트가 천천히 오르내린다. 멈춘 화면이 아니라 기다리는 중이라는 신호다.
+class _Loading extends StatefulWidget {
+  const _Loading();
+
+  @override
+  State<_Loading> createState() => _LoadingState();
+}
+
+class _LoadingState extends State<_Loading>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _bob;
+
+  @override
+  void initState() {
+    super.initState();
+    _bob = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _bob.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AnimatedBuilder(
+            animation: _bob,
+            builder: (context, child) => Transform.translate(
+              offset: Offset(0, -10 * Curves.easeInOut.transform(_bob.value)),
+              child: child,
+            ),
+            child: Image.asset(
+              AppIllustrations.mascot,
+              height: 220,
+              fit: BoxFit.contain,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.s16),
+          Text(
+            '오늘 할 일을 불러오는 중',
+            style: AppTypography.body.copyWith(
+              color: AppColors.onEspressoMuted,
+            ),
+          ),
+        ],
       ),
     );
   }

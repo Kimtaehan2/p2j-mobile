@@ -9,10 +9,18 @@ import '../theme/app_typography.dart';
 ///
 /// 사과하지 않는다. 무엇이 잘못됐고 어떻게 하면 되는지만 말한다.
 class ErrorView extends StatelessWidget {
-  const ErrorView({required this.error, this.onRetry, super.key});
+  const ErrorView({
+    required this.error,
+    this.onRetry,
+    this.onDark = false,
+    super.key,
+  });
 
   final Object error;
   final VoidCallback? onRetry;
+
+  /// 어두운 면 위에 놓을 때. 글자와 버튼 색을 뒤집는다.
+  final bool onDark;
 
   String get _message {
     final failure = error;
@@ -49,7 +57,9 @@ class ErrorView extends StatelessWidget {
             Text(
               _message,
               textAlign: TextAlign.center,
-              style: AppTypography.body.copyWith(color: AppColors.ink),
+              style: AppTypography.body.copyWith(
+                color: onDark ? AppColors.onEspresso : AppColors.ink,
+              ),
             ),
             if (onRetry != null) ...[
               const SizedBox(height: AppSpacing.s24),
@@ -57,6 +67,12 @@ class ErrorView extends StatelessWidget {
                 width: 140,
                 child: OutlinedButton(
                   onPressed: onRetry,
+                  style: onDark
+                      ? OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.onEspresso,
+                          backgroundColor: AppColors.espressoFill,
+                        )
+                      : null,
                   child: const Text('다시 시도'),
                 ),
               ),
