@@ -32,6 +32,7 @@ dependencies:
 
   # 통계 화면(11주차)용. 이번 범위에서는 쓰지 않는다.
   fl_chart: ^0.69.0
+  speech_to_text: ^7.4.0
 
 dev_dependencies:
   flutter_test:

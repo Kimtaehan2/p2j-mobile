@@ -30,8 +30,8 @@ class GoalListScreen extends ConsumerWidget {
           if (items.isEmpty) {
             return const EmptyView(
               icon: Icons.flag_rounded,
-              title: '진행 중인 목표가 없어요',
-              description: '이루고 싶은 걸 말하면\n주 단위 계획으로 만들어 드릴게요.',
+              title: '아직 목표가 없어요',
+              description: '이루고 싶은 걸 말해 주세요.\n주 단위로 나눠 드릴게요.',
             );
           }
           return ListView.separated(

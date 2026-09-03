@@ -39,7 +39,7 @@ class AchievementHero extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  cleared ? '오늘 할 일을 다 끝냈어요' : '오늘의 달성률',
+                  cleared ? '오늘 할 일을 다 끝냈어요!' : '오늘의 달성률',
                   textAlign: TextAlign.center,
                   style: AppTypography.caption.copyWith(
                     color: AppColors.onGoldMuted,

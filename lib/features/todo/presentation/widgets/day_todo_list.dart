@@ -47,8 +47,8 @@ class DayTodoList extends ConsumerWidget {
             const Padding(
               padding: EdgeInsets.only(top: AppSpacing.s32),
               child: EmptyView(
-                title: '오늘 할 일이 아직 없어요',
-                description: '목표를 말하면 할 일로 바꿔 드릴게요.\n지금은 아래 + 버튼으로 직접 추가할 수 있어요.',
+                title: '오늘은 아직 비어 있어요',
+                description: '아래 + 를 누르고 편하게 말해 보세요.\n무엇을 할지만 말하면 정리해 드릴게요.',
               ),
             )
           else

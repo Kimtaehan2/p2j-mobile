@@ -39,7 +39,7 @@ class PlaceholderScreen extends StatelessWidget {
                 child: Icon(icon, color: AppColors.muted, size: 28),
               ),
               const SizedBox(height: AppSpacing.s20),
-              Text('준비 중이에요', style: AppTypography.titleM),
+              Text('곧 만나요', style: AppTypography.titleM),
               const SizedBox(height: AppSpacing.s8),
               Text(
                 description,
