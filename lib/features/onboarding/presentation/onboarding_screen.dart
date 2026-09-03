@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/api_exception.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_illustrations.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/theme/app_typography.dart';
@@ -65,6 +66,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         _Step.together => '저희 함께 시작해봐요',
         _Step.email => '이메일을 알려주세요',
         _Step.password => '비밀번호를 만들어주세요',
+      };
+
+  /// 줄마다 포즈가 바뀐다. 같은 그림이 계속 나오면 금방 질린다.
+  String get _illustration => switch (_step) {
+        _Step.difficulty => AppIllustrations.loadAdjust,
+        _Step.promise => AppIllustrations.aiPlan,
+        _Step.together => AppIllustrations.achievement,
+        _ => AppIllustrations.mascot,
       };
 
   void _onTyped() {
@@ -202,10 +211,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           if (!keyboardOpen) ...[
             const SizedBox(height: AppSpacing.s12),
             Flexible(
-              child: Image.asset(
-                'assets/images/mascot.png',
-                height: 260,
-                fit: BoxFit.contain,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 320),
+                child: Image.asset(
+                  _illustration,
+                  key: ValueKey(_illustration),
+                  height: 260,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ],

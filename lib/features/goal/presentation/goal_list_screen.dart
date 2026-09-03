@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/theme/app_illustrations.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/empty_view.dart';
 import '../../../core/widgets/error_view.dart';
@@ -29,7 +30,7 @@ class GoalListScreen extends ConsumerWidget {
         data: (items) {
           if (items.isEmpty) {
             return const EmptyView(
-              icon: Icons.flag_rounded,
+              imagePath: AppIllustrations.goalAdd,
               title: '아직 목표가 없어요',
               description: '이루고 싶은 걸 말해 주세요.\n주 단위로 나눠 드릴게요.',
             );

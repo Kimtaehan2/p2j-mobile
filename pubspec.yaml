@@ -45,12 +45,15 @@ dev_dependencies:
   riverpod_generator: ^3.0.0
   riverpod_lint: ^3.0.0
   custom_lint: ^0.8.1
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
   assets:
     - lib/mock/fixtures/
     - assets/images/
+    # 2.0x / 3.0x / 4.0x 하위 폴더는 Flutter 가 화면 밀도에 맞춰 알아서 고른다.
+    - assets/illustrations/
 
   fonts:
     # 가변 폰트 하나로 모든 굵기를 낸다. 정적 4종(11MB)보다 작다.

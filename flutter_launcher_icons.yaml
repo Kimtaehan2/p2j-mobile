@@ -1,0 +1,11 @@
+# 앱 아이콘 생성 설정.
+# 아이콘을 바꾸면 아래를 다시 돌린다.
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "masters-1024/01_app_launcher.png"
+  # 적응형 아이콘. 전경은 여백을 둔 마스코트, 배경은 원본의 라벤더색.
+  adaptive_icon_background: "#C9A9E4"
+  adaptive_icon_foreground: "masters-1024/01_app_launcher.png"
+  min_sdk_android: 24

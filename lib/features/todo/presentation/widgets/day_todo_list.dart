@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/network/api_exception.dart';
+import '../../../../core/theme/app_illustrations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
@@ -11,6 +12,7 @@ import '../../../../core/widgets/loading_view.dart';
 import '../../data/todo_models.dart';
 import '../todo_provider.dart';
 import 'achievement_hero.dart';
+import 'cleared_card.dart';
 import 'todo_tile.dart';
 
 /// 선택한 날짜의 달성률 블록과 투두 목록.
@@ -47,12 +49,16 @@ class DayTodoList extends ConsumerWidget {
             const Padding(
               padding: EdgeInsets.only(top: AppSpacing.s32),
               child: EmptyView(
+                imagePath: AppIllustrations.todayTodo,
                 title: '오늘은 아직 비어 있어요',
                 description: '아래 + 를 누르고 편하게 말해 보세요.\n무엇을 할지만 말하면 정리해 드릴게요.',
               ),
             )
-          else
+          else ...[
             _TodoCard(date: date, items: day.items),
+            if (day.summary.total > 0 && day.summary.done == day.summary.total)
+              const ClearedCard(),
+          ],
         ],
       ),
     );

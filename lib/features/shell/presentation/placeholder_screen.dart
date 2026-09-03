@@ -11,13 +11,13 @@ class PlaceholderScreen extends StatelessWidget {
   const PlaceholderScreen({
     required this.title,
     required this.description,
-    required this.icon,
+    required this.imagePath,
     super.key,
   });
 
   final String title;
   final String description;
-  final IconData icon;
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +29,8 @@ class PlaceholderScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: 64,
-                height: 64,
-                decoration: BoxDecoration(
-                  color: AppColors.line,
-                  borderRadius: BorderRadius.circular(AppRadius.r20),
-                ),
-                child: Icon(icon, color: AppColors.muted, size: 28),
-              ),
-              const SizedBox(height: AppSpacing.s20),
+              Image.asset(imagePath, height: 180, fit: BoxFit.contain),
+              const SizedBox(height: AppSpacing.s16),
               Text('곧 만나요', style: AppTypography.titleM),
               const SizedBox(height: AppSpacing.s8),
               Text(

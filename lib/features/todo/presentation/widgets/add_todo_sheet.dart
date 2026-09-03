@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_illustrations.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../core/widgets/app_text_field.dart';
@@ -115,7 +116,11 @@ class _AddTodoSheetState extends State<AddTodoSheet> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SizedBox(height: AppSpacing.s8),
+        Image.asset(
+          AppIllustrations.voiceInput,
+          height: 130,
+          fit: BoxFit.contain,
+        ),
         Text(
           listening ? '듣고 있어요' : '무엇을 할지 말해 주세요',
           style: AppTypography.titleM,

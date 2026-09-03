@@ -11,6 +11,7 @@ class EmptyView extends StatelessWidget {
   const EmptyView({
     required this.title,
     required this.description,
+    this.imagePath,
     this.icon = Icons.checklist_rounded,
     this.actionLabel,
     this.onAction,
@@ -19,6 +20,9 @@ class EmptyView extends StatelessWidget {
 
   final String title;
   final String description;
+
+  /// 넣으면 아이콘 대신 마스코트 그림이 나온다.
+  final String? imagePath;
   final IconData icon;
   final String? actionLabel;
   final VoidCallback? onAction;
@@ -31,16 +35,19 @@ class EmptyView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 64,
-              height: 64,
-              decoration: BoxDecoration(
-                color: AppColors.accentSurface,
-                borderRadius: BorderRadius.circular(AppRadius.r20),
+            if (imagePath != null)
+              Image.asset(imagePath!, height: 160, fit: BoxFit.contain)
+            else
+              Container(
+                width: 64,
+                height: 64,
+                decoration: BoxDecoration(
+                  color: AppColors.accentSurface,
+                  borderRadius: BorderRadius.circular(AppRadius.r20),
+                ),
+                child: Icon(icon, color: AppColors.accent, size: 30),
               ),
-              child: Icon(icon, color: AppColors.accent, size: 30),
-            ),
-            const SizedBox(height: AppSpacing.s24),
+            const SizedBox(height: AppSpacing.s16),
             Text(title, style: AppTypography.titleM, textAlign: TextAlign.center),
             const SizedBox(height: AppSpacing.s8),
             Text(
