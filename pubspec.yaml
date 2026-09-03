@@ -49,3 +49,11 @@ flutter:
   uses-material-design: true
   assets:
     - lib/mock/fixtures/
+
+  fonts:
+    # 가변 폰트 하나로 모든 굵기를 낸다. 정적 4종(11MB)보다 작다.
+    # Flutter 는 가변 폰트에서 fontWeight 를 wght 축에 자동으로 이어주지 않으므로,
+    # app_typography.dart 에서 fontVariations 로 축을 직접 지정한다.
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/PretendardVariable.ttf

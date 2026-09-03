@@ -139,10 +139,15 @@ class _DayCell extends StatelessWidget {
                   ),
                   Text(
                     WeekStrip.dayNumber(day.date),
-                    style: AppTypography.label.copyWith(
+                    // 가변 폰트라 굵기를 바꿀 때 wght 축도 같이 바꿔야 한다.
+                    style: (isToday
+                            ? AppTypography.titleL
+                            : AppTypography.caption)
+                        .copyWith(
                       color: AppColors.ink,
-                      fontWeight:
-                          isToday ? FontWeight.w700 : FontWeight.w500,
+                      fontSize: AppTypography.label.fontSize,
+                      height: AppTypography.label.height,
+                      letterSpacing: AppTypography.label.letterSpacing,
                     ),
                   ),
                 ],

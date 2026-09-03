@@ -337,8 +337,14 @@ UI에서 잠금 아이콘을 보여주고 스와이프 삭제를 아예 열지 �
 타이포는 7단계(`display / titleXL / titleL / titleM / body / caption / label`),
 스페이싱은 4의 배수 8단계(`s4 … s40`), 라운드는 `r8 / r12 / r20`.
 
-폰트는 현재 플랫폼 기본이다. Pretendard 를 `assets/fonts/` 에 넣고
-`app_typography.dart` 의 `fontFamily` 만 바꾸면 전환된다.
+폰트는 **Pretendard 가변 폰트**를 번들한다(`assets/fonts/PretendardVariable.ttf`, 6.5MB).
+한글 자간과 숫자 균형이 시스템 폰트보다 낫다. SIL Open Font License 라 상업적 사용도
+자유롭고, 라이선스 전문을 `assets/fonts/Pretendard-OFL.txt` 에 함께 담았다.
+
+가변 폰트 하나로 모든 굵기를 내는데, **Flutter 는 가변 폰트에서 `fontWeight` 를 wght 축에
+자동으로 이어주지 않는다.** 그래서 `app_typography.dart` 의 모든 스타일이 `fontWeight` 와
+`fontVariations` 를 함께 지정한다. 새 스타일을 추가하거나 `copyWith(fontWeight:)` 로
+굵기를 덮어쓸 때는 축도 같이 바꿔야 한다. 안 그러면 굵기가 무시되거나 가짜 볼드가 나온다.
 
 ### 화면이 지켜야 할 것
 
