@@ -175,6 +175,23 @@ abstract final class AppTheme {
     );
   }
 
+  /// 어두운 면 위의 주요 버튼.
+  ///
+  /// 기본 주요 버튼은 잉크색인데, 인트로 배경(espresso)과 밝기가 거의 같아서
+  /// 그대로 쓰면 버튼이 배경에 묻힌다. 어두운 면에서는 금색으로 뒤집는다.
+  static ButtonStyle filledOnEspresso() => FilledButton.styleFrom(
+        backgroundColor: AppColors.gold,
+        foregroundColor: AppColors.onGold,
+        disabledBackgroundColor: AppColors.espressoFill,
+        disabledForegroundColor: AppColors.onEspressoMuted,
+        minimumSize: const Size.fromHeight(54),
+        textStyle: AppTypography.bodyStrong,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r12),
+        ),
+      );
+
   static OutlineInputBorder _inputBorder(Color color, {double width = 1}) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(AppRadius.r12),

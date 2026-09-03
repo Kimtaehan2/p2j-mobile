@@ -7,7 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/network/api_exception.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../../core/theme/app_typography.dart';
+import '../../../core/widgets/speech_bubble.dart';
 import '../../../core/widgets/typewriter_text.dart';
 import '../../auth/presentation/auth_controller.dart';
 import 'onboarding_provider.dart';
@@ -160,7 +162,16 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   AppSpacing.s24,
                   AppSpacing.s16,
                 ),
-                child: FadeSlideIn(visible: _typed, child: _action()),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (_field() != null) ...[
+                      FadeSlideIn(visible: _typed, child: _field()!),
+                      const SizedBox(height: AppSpacing.s16),
+                    ],
+                    FadeSlideIn(visible: _typed, child: _action()),
+                  ],
+                ),
               ),
             ],
           ),
@@ -170,23 +181,33 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   Widget _stage() {
-    final field = _field();
+    // 키보드가 올라오면 마스코트를 접는다. 말풍선과 입력칸이 먼저다.
+    final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TypewriterText(
-            key: ValueKey(_step),
-            text: _line,
-            textAlign: TextAlign.center,
-            startDelay: const Duration(milliseconds: 320),
-            style: AppTypography.story.copyWith(color: AppColors.onEspresso),
-            onCompleted: _onTyped,
+          SpeechBubble(
+            child: TypewriterText(
+              key: ValueKey(_step),
+              text: _line,
+              textAlign: TextAlign.center,
+              startDelay: const Duration(milliseconds: 320),
+              style: AppTypography.story.copyWith(color: AppColors.ink),
+              onCompleted: _onTyped,
+            ),
           ),
-          if (field != null) ...[
-            const SizedBox(height: AppSpacing.s32),
-            FadeSlideIn(visible: _typed, child: field),
+          if (!keyboardOpen) ...[
+            const SizedBox(height: AppSpacing.s12),
+            Flexible(
+              child: Image.asset(
+                'assets/images/mascot.png',
+                height: 260,
+                fit: BoxFit.contain,
+              ),
+            ),
           ],
         ],
       ),
@@ -248,11 +269,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           ],
         );
       case _Step.name:
-        return FilledButton(onPressed: _submitName, child: const Text('확인'));
+        return FilledButton(
+          style: AppTheme.filledOnEspresso(),
+          onPressed: _submitName,
+          child: const Text('확인'),
+        );
       case _Step.email:
-        return FilledButton(onPressed: _submitEmail, child: const Text('다음'));
+        return FilledButton(
+          style: AppTheme.filledOnEspresso(),
+          onPressed: _submitEmail,
+          child: const Text('다음'),
+        );
       case _Step.password:
         return FilledButton(
+          style: AppTheme.filledOnEspresso(),
           onPressed: _submitting ? null : _submitPassword,
           child: _submitting
               ? const SizedBox(
@@ -260,7 +290,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   height: 18,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Colors.white,
+                    color: AppColors.onGold,
                   ),
                 )
               : const Text('가입하고 시작하기'),

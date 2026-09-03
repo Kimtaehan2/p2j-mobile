@@ -50,6 +50,7 @@ flutter:
   uses-material-design: true
   assets:
     - lib/mock/fixtures/
+    - assets/images/
 
   fonts:
     # 가변 폰트 하나로 모든 굵기를 낸다. 정적 4종(11MB)보다 작다.
